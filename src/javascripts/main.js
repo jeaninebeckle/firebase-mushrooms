@@ -1,6 +1,11 @@
 import '../styles/main.scss';
 import 'bootstrap';
+import auth from './components/auth/auth'
 
-$('#button').click(() => {
-  console.error('it worked');
-});
+console.error('Mushrooms!');
+
+const init = () => {
+  auth.loginButton();
+}
+
+init();
