@@ -3,7 +3,7 @@ import mushroomData from '../../helpers/data/mushroomData';
 
 const buildForest = () => {
   mushroomData.getMushrooms()
-    .then((response) => console.error('Get mushrooms worked!', response.data))
+    .then((mushrooms) => console.error('Get mushrooms worked!', mushrooms))
     .catch((err) => console.error('it broke', err));
   // const domString = '<h1>I SEE MUSHROOMS!!!</h1>';
   // utils.printToDom('#forest', domString);
