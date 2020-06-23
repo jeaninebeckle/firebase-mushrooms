@@ -5,7 +5,6 @@ import utils from '../../helpers/utils';
 const buildForest = () => {
   mushroomData.getMushrooms()
     .then((mushrooms) => {
-      console.error('Get mushrooms worked!', mushrooms);
       let domString = `
       <h2 class="text-center">Forest</h2>
       <div class="d-flex flex-wrap">

@@ -2,9 +2,11 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import mushroomList from '../../components/mushroomList/mushroomList';
+import mycologistList from '../../components/mycologistList/mycologistList';
 
 const authDiv = $('#auth');
 const forestDiv = $('#forest');
+const hutsDiv = $('#huts');
 const logoutButton = $('#navbar-logout-button');
 
 const checkLoginStatus = () => {
@@ -12,12 +14,15 @@ const checkLoginStatus = () => {
     if (user) {
       authDiv.addClass('hide');
       forestDiv.removeClass('hide');
+      hutsDiv.removeClass('hide');
       logoutButton.removeClass('hide');
 
       mushroomList.buildForest();
+      mycologistList.buildHuts();
     } else {
       authDiv.removeClass('hide');
       forestDiv.addClass('hide');
+      hutsDiv.addClass('hide');
       logoutButton.addClass('hide');
     }
   });

@@ -8,8 +8,6 @@ import authData from './helpers/data/authData';
 import 'bootstrap';
 import '../styles/main.scss';
 
-console.error('Mushrooms!');
-
 const init = () => {
   firebase.initializeApp(apiKeys.firebaseConfig);
   authData.checkLoginStatus();
