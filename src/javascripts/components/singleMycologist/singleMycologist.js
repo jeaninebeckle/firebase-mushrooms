@@ -1,4 +1,5 @@
 import mycologistData from '../../helpers/data/mycologistData';
+// import mycologistMushroomData from '../../helpers/data/mycologistMushroomData';
 import utils from '../../helpers/utils';
 
 import './singleMycologist.scss';
@@ -8,6 +9,9 @@ const buildMycologist = (e) => {
   mycologistData.getMycologistById(mycologistId)
     .then((response) => {
       const mycologist = response.data;
+      // mycologistMushroomData.getMycoShroomsByMycoUid(mycologist.uid)
+      //   .then((res) => console.error('getMycoShrooms worked!', res))
+      //   .catch((err) => console.error('problem in getMycoShrooms', err));
       const domString = `
         <h2 class="text-center">Featured Mycologist</h2>
         <div class="col-12">
