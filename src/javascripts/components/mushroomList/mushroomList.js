@@ -39,7 +39,7 @@ const buildForest = () => {
     .then((mushrooms) => {
       let domString = `
       <h2 class="text-center">Forest</h2>
-      <button class="btn btn-success" id="show-add-mush">New Shroom</button>
+      <button class="btn btn-success" id="show-add-mush">Add New Shroom</button>
       <div class="d-flex flex-wrap">
       `;
 
