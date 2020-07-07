@@ -6,7 +6,6 @@ import utils from '../../helpers/utils';
 const buildHuts = () => {
   mycologistData.getMycologists()
     .then((mycologists) => {
-      console.error('Get mycologists worked!', mycologists);
       let domString = `
       <h2 class="text-center">Huts</h2>
       <div class="d-flex flex-wrap">
