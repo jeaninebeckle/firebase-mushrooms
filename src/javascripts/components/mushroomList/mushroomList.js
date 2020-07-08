@@ -1,6 +1,7 @@
 import mushroomComponent from '../mushroom/mushroom';
 import mushroomData from '../../helpers/data/mushroomData';
 import newMushroom from '../newMushroom/newMushroom';
+import mycologistMushroomData from '../../helpers/data/mycologistMushroomData';
 import smash from '../../helpers/data/smash';
 import utils from '../../helpers/utils';
 
@@ -34,8 +35,30 @@ const addShroomEvent = (e) => {
     .catch((err) => console.error('could not add mushroom', err));
 };
 
+const mycoMushroomController = (e) => {
+  if (e.target.checked) {
+    const newMycologistMushroom = {
+      mushroomId: e.target.closest('.card').id,
+      mycologistUid: e.target.dataset.mycologistUid,
+    };
+
+    mycologistMushroomData.addMycologistMushroom(newMycologistMushroom)
+      .then(() => {
+        buildForest(); //eslint-disable-line
+        utils.printToDom('#single-myco', '');
+        utils.printToDom('#new-shroom', '');
+      });
+  } else {
+    mycologistMushroomData.deleteMycoMushroom(e.target.id)
+      .then(() => {
+
+      })
+      .catch((err) => console.error('delete myco mushroom failed', err));
+  }
+};
+
 const buildForest = () => {
-  mushroomData.getMushrooms()
+  smash.getShroomsWithOwners()
     .then((mushrooms) => {
       let domString = `
       <h2 class="text-center">Forest</h2>
@@ -50,10 +73,15 @@ const buildForest = () => {
       domString += '</div>';
 
       utils.printToDom('#forest', domString);
-      $('body').on('click', '.delete-shroom', removeShroomEvent);
-      $('body').on('click', '#show-add-mush', newMushroom.showForm);
-      $('body').on('click', '#mush-creator', addShroomEvent);
     })
     .catch((err) => console.error('it broke', err));
 };
-export default { buildForest };
+
+const forestEvents = () => {
+  $('body').on('click', '.delete-shroom', removeShroomEvent);
+  $('body').on('click', '#show-add-mush', newMushroom.showForm);
+  $('body').on('click', '#mush-creator', addShroomEvent);
+  $('body').on('click', '.myco-shroom-checkbox', mycoMushroomController);
+};
+
+export default { buildForest, forestEvents };

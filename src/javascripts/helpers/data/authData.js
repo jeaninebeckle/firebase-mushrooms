@@ -25,6 +25,7 @@ const checkLoginStatus = () => {
 
       mushroomList.buildForest();
       mycologistList.buildHuts();
+      mushroomList.forestEvents();
     } else {
       authDiv.removeClass('hide');
       forestDiv.addClass('hide');

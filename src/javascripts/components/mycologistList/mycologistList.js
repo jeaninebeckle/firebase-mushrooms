@@ -9,7 +9,7 @@ const addMycoEvent = (e) => {
 
   const newMyco = {
     name: $('#myco-name').val(),
-    age: $('#myco-age').val() * 1,
+    age: $('#myco-age').val(),
     uid: '',
   };
 
@@ -39,8 +39,8 @@ const buildHuts = () => {
       utils.printToDom('#huts', domString);
 
       $('body').on('click', '.myco-card', singleMycologist.buildMycologist);
-      $('body').on('click', '#show-add-myco', newMycologist.showMycoForm);
-      $('body').on('click', '#myco-creator', addMycoEvent);
+      $('body').one('click', '#show-add-myco', newMycologist.showMycoForm);
+      $('body').one('click', '#myco-creator', addMycoEvent);
     })
     .catch((err) => console.error('nice try, neener', err));
 };
