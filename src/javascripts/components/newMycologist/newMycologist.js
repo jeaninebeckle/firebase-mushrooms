@@ -9,7 +9,7 @@ const showMycoForm = () => {
     <input type="text" class="form-control" id="myco-name" placeholder="Joe Shmo">
   </div>
   <div class="form-group">
-    <label for="myco-age">Size:</label>
+    <label for="myco-age">Age:</label>
     <input type="number" class="form-control" id="myco-age" placeholder="10">
   </div>
   <button type="submit" class="btn btn-primary" id="myco-creator">Submit</button>
