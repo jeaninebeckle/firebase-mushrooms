@@ -19,11 +19,11 @@ const removeShroomEvent = (e) => {
 };
 
 const showShroomForm = (e) => {
-  e.preventDefault();
   editMushroom.showForm(e.target.closest('.card').id);
 };
 
 const editShroomEvent = (e) => {
+  e.preventDefault();
   const mushroomId = e.target.closest('.edit-mushroom').id;
 
   const editedMush = {
